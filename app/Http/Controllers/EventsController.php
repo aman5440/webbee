@@ -185,6 +185,7 @@ class EventsController extends BaseController
             return $sql->select('id')->from('workshops')->where('start','>', Carbon::now());
         })->with('workshops')->get();        
         return response()->json($events);
+        
         //dd($events);
 
         //throw new \Exception('implement in coding task 2');
