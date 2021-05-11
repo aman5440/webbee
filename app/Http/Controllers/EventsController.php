@@ -179,13 +179,15 @@ class EventsController extends BaseController
     ```
      */
 
+
+    
     public function getFutureEventsWithWorkshops() {
 
         $events = Event::whereIn('id',function($sql){
             return $sql->select('id')->from('workshops')->where('start','>', Carbon::now());
         })->with('workshops')->get();        
         return response()->json($events);
-        
+
         //dd($events);
 
         //throw new \Exception('implement in coding task 2');
